@@ -14,6 +14,9 @@ const {
 	CELO_CODE,
 	CELO_ALFAJORES_TESTNET_CODE,
 	CELO_BAKLAVA_TESTNET_CODE,
+	ROI_CODE,
+	ROI_TESTNET_CODE,
+	ROI_TESTNET_LOCAL_CODE,
 } = networkIDs
 
 function getRPCEndpoints(network) {
@@ -47,6 +50,12 @@ function getRPCEndpoints(network) {
 		return ['https://alfajores-forno.celo-testnet.org']
 	case CELO_BAKLAVA_TESTNET_CODE:
 		return ['https://baklava-forno.celo-testnet.org']
+	case ROI_CODE:
+		return ['https://roi.network.io/ext/bc/C/rpc']
+	case ROI_TESTNET_CODE:
+		return ['http://45.76.183.104:9650/ext/bc/C/rpc']
+	case ROI_TESTNET_LOCAL_CODE:
+		return ['http://127.0.0.1:9650/ext/bc/C/rpc']
 	default:
 		return []
 	}

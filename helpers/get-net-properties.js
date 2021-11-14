@@ -14,6 +14,9 @@ const {
 	CELO_CODE,
 	CELO_ALFAJORES_TESTNET_CODE,
 	CELO_BAKLAVA_TESTNET_CODE,
+	ROI_CODE,
+	ROI_TESTNET_CODE,
+	ROI_TESTNET_LOCAL_CODE,
 } = networkIDs
 
 function getNetworkDisplayName(network) {
@@ -47,6 +50,12 @@ function getNetworkDisplayName(network) {
 		return 'CELO Alfajores'
 	case CELO_BAKLAVA_TESTNET_CODE:
 		return 'CELO Baklava'
+	case ROI_CODE:
+		return 'ROI'
+	case ROI_TESTNET_CODE:
+		return 'ROI Testnet'
+	case ROI_TESTNET_LOCAL_CODE:
+		return 'ROI Private Local Testnet'
 	default:
 		return 'Unknown Private Network'
 	}
@@ -71,6 +80,10 @@ function getNetworkCoinName(network) {
 	case CELO_ALFAJORES_TESTNET_CODE:
 	case CELO_BAKLAVA_TESTNET_CODE:
 		return 'CELO'
+	case ROI_CODE:
+	case ROI_TESTNET_CODE:
+	case ROI_TESTNET_LOCAL_CODE:
+		return 'ROI'
 	default:
 		return 'ETH'
 	}
@@ -85,6 +98,7 @@ function isTestnet(network) {
 	case RSK_CODE:
 	case CLASSIC_CODE:
 	case CELO_CODE:
+	case ROI_CODE:
 		return false
 	default:
 		return true
