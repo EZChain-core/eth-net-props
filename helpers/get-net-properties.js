@@ -17,6 +17,8 @@ const {
 	ROI_CODE,
 	ROI_TESTNET_CODE,
 	ROI_TESTNET_LOCAL_CODE,
+	EZC_CODE,
+	EZC_TESTNET_CODE
 } = networkIDs
 
 function getNetworkDisplayName(network) {
@@ -56,6 +58,10 @@ function getNetworkDisplayName(network) {
 		return 'ROI Testnet'
 	case ROI_TESTNET_LOCAL_CODE:
 		return 'ROI Private Local Testnet'
+	case EZC_CODE:
+		return 'EZC'
+	case EZC_TESTNET_CODE:
+		return 'EZC Testnet'
 	default:
 		return 'Unknown Private Network'
 	}
@@ -84,6 +90,9 @@ function getNetworkCoinName(network) {
 	case ROI_TESTNET_CODE:
 	case ROI_TESTNET_LOCAL_CODE:
 		return 'ROI'
+	case EZC_CODE:
+	case EZC_TESTNET_CODE:
+		return 'EZC'
 	default:
 		return 'ETH'
 	}

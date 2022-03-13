@@ -17,6 +17,8 @@ const {
 	ROI_CODE,
 	ROI_TESTNET_CODE,
 	ROI_TESTNET_LOCAL_CODE,
+	EZC_CODE,
+	EZC_TESTNET_CODE
 } = networkIDs
 
 const blockScoutLink = (net, prefix) => `https://blockscout.com/${net}/${prefix}`
@@ -28,6 +30,8 @@ const celoBaklavaTestnetExplorerLink = 'https://baklava-blockscout.celo-testnet.
 const roiExplorerLink = 'https://roi.exploter.com'
 const roiTestnetExplorerLink = 'http://45.32.107.168:4000/'
 const roiTestnetLocalExplorerLink = 'http://127.0.0.1:4000'
+const ezcExplorerLink = 'https://cchain-explorer.ezchain.com'
+const ezcTestnetExplorerLink = 'https://testnet-cchain-explorer.ezchain.com'
 
 
 const explorerLink = (networkCode, net, prefix) => {
@@ -58,6 +62,10 @@ const explorerLink = (networkCode, net, prefix) => {
 		return roiTestnetExplorerLink // ROI TESTNET
 	case ROI_TESTNET_LOCAL_CODE:
 		return roiTestnetLocalExplorerLink // LOCAL TEST
+	case EZC_CODE:
+		return ezcExplorerLink
+	case EZC_TESTNET_CODE:
+		return ezcTestnetExplorerLink
 	default:
 		return blockScoutLink(net, prefix)
 	}
@@ -73,7 +81,8 @@ const tokenLink = (networkCode, chain, prefix, tokenAddress, holderAddress) => {
 	const roiExplorerLinkStr = `${roiExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
 	const roiTestnetExplorerLinkStr = `${roiTestnetExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
 	const roiTestnetLocalExplorerLinkStr = `${roiTestnetLocalExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
-
+	const ezcExplorerLinkStr = `${ezcExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
+	const ezcTestnetExplorerLinkStr = `${ezcTestnetExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
 	switch (networkCode) {
 	case SOKOL_CODE: // POA Sokol testnet
 	case POA_CORE_CODE: // POA Core
@@ -101,6 +110,10 @@ const tokenLink = (networkCode, chain, prefix, tokenAddress, holderAddress) => {
 		return roiTestnetExplorerLinkStr // ROI TESTNET
 	case ROI_TESTNET_LOCAL_CODE:
 		return roiTestnetLocalExplorerLinkStr // LOCAL TEST
+	case EZC_CODE:
+		return ezcExplorerLinkStr
+	case EZC_TESTNET_CODE:
+		return ezcTestnetExplorerLinkStr
 	default:
 		return blockscoutLinkStr
 	}
@@ -155,6 +168,10 @@ function getExplorerChain (networkCode) {
 	case CELO_BAKLAVA_TESTNET_CODE: // CELO Baklava testnet
 		chain = 'celo-baklava'
 		break
+	case EZC_CODE:
+	case EZC_TESTNET_CODE:
+		chain = 'ezc'
+		break
 	default:
 		chain = ''
 	}
@@ -190,6 +207,9 @@ function getExplorerPrefix (networkCode) {
 		break
 	case GOERLI_CODE: // Goerli testnet
 		prefix = 'goerli'
+		break
+	case EZC_CODE: // Goerli testnet
+		prefix = 'ezc'
 		break
 	default:
 		prefix = ''

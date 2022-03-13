@@ -17,6 +17,8 @@ const {
 	ROI_CODE,
 	ROI_TESTNET_CODE,
 	ROI_TESTNET_LOCAL_CODE,
+	EZC_CODE,
+	EZC_TESTNET_CODE
 } = networkIDs
 
 function getRPCEndpoints(network) {
@@ -56,6 +58,10 @@ function getRPCEndpoints(network) {
 		return ['http://45.76.183.104:9650/ext/bc/C/rpc']
 	case ROI_TESTNET_LOCAL_CODE:
 		return ['http://127.0.0.1:9650/ext/bc/C/rpc']
+	case EZC_CODE:
+		return ['https://api.ezchain.com/ext/bc/C/rpc']
+	case EZC_TESTNET_CODE:
+		return ['https://testnet-api.ezchain.com/ext/bc/C/rpc']
 	default:
 		return []
 	}

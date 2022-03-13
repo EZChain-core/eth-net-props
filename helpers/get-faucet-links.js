@@ -10,6 +10,8 @@ const {
 	ROI_CODE,
 	ROI_TESTNET_CODE,
 	ROI_TESTNET_LOCAL_CODE,
+	EZC_CODE,
+	EZC_TESTNET_CODE
 } = networkIDs
 
 function getFaucetLinks(network) {
